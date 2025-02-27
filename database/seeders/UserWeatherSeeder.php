@@ -19,6 +19,9 @@ class UserWeatherSeeder extends Seeder
 
         if ($city == null) {
             die($this->command->getOutput()->error("Your city is missing."));
+        } elseif ($city == true)
+        {
+            die($this->command->getOutput()->error("Your city is already in use."));
         }
 
 

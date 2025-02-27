@@ -15,11 +15,22 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $faker = \Faker\Factory::create();
+
         $amount = $this->command->getOutput()->ask("Koliko korisnika zelite da napravite?", 1);
 
-        $password = $this->command->getOutput()->ask("Koja sifra?", 123456);
+        $userEmail = $this->command->getOutput()->ask("What is the email of the user?", $faker->email);
 
-        $faker = \Faker\Factory::create();
+        if($userEmail == true){
+
+            die($this->command->getOutput()->error("User email already exists."));
+        }
+
+        $password = $this->command->getOutput()->ask("What is the user Password", 123456);
+
+
+
+//        $faker = \Faker\Factory::create();
 
 //progress bar
         $this->command->getOutput()->progressStart($amount);
@@ -29,7 +40,7 @@ class UserSeeder extends Seeder
             User::create([
 
                 'name' => $faker->name,
-                'email' => $faker->email,
+                'email' => $userEmail,
                 'password' => Hash::make($password),
 
             ]);
