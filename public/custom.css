@@ -1,0 +1,105 @@
+
+body {
+    background-color: #0d071a !important; /* Purple-900 */
+    color: white;
+}
+
+
+
+
+.table {
+    --bs-table-bg: #0d071a;
+    --bs-table-color: #ded1ff;
+    border-radius: 5px;
+}
+
+
+.custom-bg {
+    background-color: #24103b !important;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Input polja */
+.custom-input {
+    background-color: #2d124d !important;
+    color: white !important;
+    border: 1px solid #6f42c1;
+}
+
+
+
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.custom-input:focus {
+    border-color: #9b6fe6;
+    box-shadow: 0 0 5px #9b6fe6;
+}
+
+/* Dugme */
+.btn-purple {
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+}
+
+.btn-purple:hover {
+    background-color: #9b6fe6;
+}
+
+.shop-cart {
+
+    background-color: #11071b !important;
+    color: #9b6fe6;
+    border: 1px solid #371c6c;
+    border-radius: 10px;
+
+}
+
+.shop-cart-txt {
+    color: #c09aff;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.btn-cart {
+    background-color: #120a26;
+    color: #9b6fe6;
+    border: 1px solid #371c6c;
+    border-radius: 10px;
+}
+
+.btn-cart:hover {
+    background-color: #20113e;
+    color: #ccbcf1;
+    border: 1px solid #703fcf;
+    border-radius: 10px;
+}
+
+.card-txt-des {
+    color: #ded1ff;
+    font-size: 14px;
+}
+/*.contact-cont {*/
+/*    height: 68vh;*/
+/*}*/
+
+
+footer {
+    margin-top: auto;
+}
+
+
+/* Tamnija navigacija */
+.bg-tamna {
+    background-color: #120a26 !important;
+}
+
+/* Hover efekat za linkove */
+.navbar .nav-link:hover {
+    color: #9b6fe6 !important;
+}
+
+

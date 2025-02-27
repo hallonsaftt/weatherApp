@@ -22,4 +22,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
 
     ->name('home');
 
+
+Route::get('/prognoza', [App\Http\Controllers\WeatherController::class, 'index']);
+
 require __DIR__.'/auth.php';
