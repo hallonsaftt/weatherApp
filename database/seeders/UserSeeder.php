@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $amount = $this->command->getOutput()->ask("Kolio korisnika zelite da napravite?", 1);
+        $amount = $this->command->getOutput()->ask("Koliko korisnika zelite da napravite?", 1);
 
         $password = $this->command->getOutput()->ask("Koja sifra?", 123456);
 
