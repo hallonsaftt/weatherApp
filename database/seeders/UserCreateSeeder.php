@@ -25,9 +25,11 @@ class UserCreateSeeder extends Seeder
         if($email == true)
         {
             $this->command->getOutput()->error("User is already exists.");
+            return;
         }
 
         $password = $this->command->getOutput()->ask("What is your password?", $faker->password);
+
 
 
         User::create([

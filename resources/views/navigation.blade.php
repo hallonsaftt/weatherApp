@@ -13,9 +13,18 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
 
+
+                @if(auth()->user())
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                @else
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route("login") }}">Login</a>
                 </li>
+                @endif
             </ul>
         </div>
     </div>

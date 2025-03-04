@@ -102,4 +102,56 @@ footer {
     color: #9b6fe6 !important;
 }
 
+.weather-forecast {
+    background-color: #24103b !important;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ded1ff;
+}
+
+.weather-city {
+    color: #9b6fe6;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #371c6c;
+    padding-bottom: 10px;
+}
+
+.weather-day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #11071b;
+    border-radius: 5px;
+    border: 1px solid #371c6c;
+}
+
+.weather-day-name {
+    color: #c09aff;
+    font-weight: bold;
+}
+
+.weather-temperature {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.temp-hot {
+    color: #ff6b6b; /* crvenkasto za vruće */
+}
+
+.temp-mild {
+    color: #9b6fe6; /* ljubičasto za srednje */
+}
+
+.temp-cold {
+    color: #6bcbff; /* plavo za hladno */
+}
+
+.weather-icon {
+    color: #9b6fe6;
+    margin-right: 10px;
+}
 

@@ -19,12 +19,20 @@ class WeatherSeeder extends Seeder
             "Vranje" => 25,
         ];
 
-        foreach ($prognoza as $city => $tep)
-        {
-                WeatherModel::create([
-                        'city' => $city,
-                        'temp' => $tep,
-                ]);
+        foreach ($prognoza as $city => $temp) {
+            // Provera
+            $existingCity = WeatherModel::where('city', $city)->first();
+
+            if ($existingCity) {
+                $this->command->getOutput()->error("Grad {$city} već postoji u bazi.");
+                continue;
+            }
+
+            // db
+            WeatherModel::create([
+                'city' => $city,
+                'temp' => $temp,
+            ]);
         }
     }
 }
