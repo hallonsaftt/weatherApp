@@ -7,6 +7,7 @@
 
 
 @section('homePage')
+    <div class="temp-container">
     <div class="weather-forecast">
         <h2 class="weather-city">{{ $city }}</h2>
         @foreach($forecast as $dan => $temperatura)
@@ -22,5 +23,8 @@
                 </span>
             </div>
         @endforeach
+        <a href="/" class="btn btn-cart"> << Back to all</a>
+    </div>
+
     </div>
 @endsection

@@ -14,16 +14,16 @@
 
         @if(auth()->user())
 
-
+            <div class="temp-container">
             @foreach($prognoza as $grad => $dnevneTemperature)
                 <div class="weather-forecast">
                     <h2 class="weather-city">{{ $grad }}</h2>
 
-                    <a href="/forecast/{{ $grad }}">Pogledaj prognozu</a>
+                    <a href="/forecast/{{ $grad }}" class="btn btn-cart">Pogledaj prognozu</a>
                 </div>
                 <br>
             @endforeach
-
+            </div>
 
 
 

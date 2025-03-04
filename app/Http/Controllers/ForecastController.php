@@ -12,8 +12,8 @@ class ForecastController extends Controller
     {
         $forecasts = [
             "Beograd" => [
-                "Ponedeljak" => 22,
-                "Utorak" => 24,
+                "Ponedeljak" => 11,
+                "Utorak" => -2,
                 "Sreda" => 23,
                 "Četvrtak" => 25,
                 "Petak" => 21,
@@ -40,7 +40,7 @@ class ForecastController extends Controller
             ]
         ];
 
-        // Konvertuj unos grada u format sa prvim velikim slovom
+
         $normalizedCity = ucfirst(strtolower($city));
 
         if(!array_key_exists($normalizedCity, $forecasts))
