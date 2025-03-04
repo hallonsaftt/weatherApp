@@ -18,20 +18,10 @@
             @foreach($prognoza as $grad => $dnevneTemperature)
                 <div class="weather-forecast">
                     <h2 class="weather-city">{{ $grad }}</h2>
-                    @foreach($dnevneTemperature as $dan => $temperatura)
-                        <div class="weather-day">
-                            <div class="d-flex align-items-center">
-                                <span class="weather-icon">🌡️</span>
-                                <span class="weather-day-name">{{ $dan }}</span>
-                            </div>
-                            <span class="weather-temperature
-                    {{ $temperatura > 25 ? 'temp-hot' :
-                       ($temperatura < 15 ? 'temp-cold' : 'temp-mild') }}">
-                    {{ $temperatura }}°C
-                </span>
-                        </div>
-                    @endforeach
+
+                    <a href="/forecast/{{ $grad }}">Pogledaj prognozu</a>
                 </div>
+                <br>
             @endforeach
 
 

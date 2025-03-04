@@ -20,4 +20,10 @@ class WeatherController extends Controller
 
         return view('weather', compact('prognoza'));
     }
+
+
+    public function forecast()
+    {
+
+    }
 }

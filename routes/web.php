@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WeatherController;
+use App\Http\Controllers\ForecastController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +27,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
 
 Route::get('/prognoza', [App\Http\Controllers\WeatherController::class, 'index']);
 
-Route::get('/forecast/{city}', [App\Http\Controllers\WeatherController::class, 'forecast']);
+Route::get('/forecast/{city}', [App\Http\Controllers\ForecastController::class, 'index'])
+->name('forecast')  ;
 
 require __DIR__.'/auth.php';
