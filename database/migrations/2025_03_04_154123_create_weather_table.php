@@ -9,11 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('weather', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
+            $table->float('temperature');
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('weather');
     }
 };

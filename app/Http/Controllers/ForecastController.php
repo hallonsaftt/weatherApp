@@ -3,57 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\City;
 
 class ForecastController extends Controller
 {
-
-
-    public function index($city)
+    public function index($cityName)
     {
-        $forecasts = [
-            "Beograd" => [
-                "Ponedeljak" => 11,
-                "Utorak" => -2,
-                "Sreda" => 23,
-                "Četvrtak" => 25,
-                "Petak" => 21,
-                "Subota" => 26,
-                "Nedelja" => 27
-            ],
-            "Nis" => [
-                "Ponedeljak" => 14,
-                "Utorak" => 16,
-                "Sreda" => 15,
-                "Četvrtak" => 17,
-                "Petak" => 13,
-                "Subota" => 18,
-                "Nedelja" => 19
-            ],
-            "Vranje" => [
-                "Ponedeljak" => 25,
-                "Utorak" => 27,
-                "Sreda" => 26,
-                "Četvrtak" => 28,
-                "Petak" => 24,
-                "Subota" => 29,
-                "Nedelja" => 30
-            ]
-        ];
+
+        $city = City::where('name', $cityName)->first();
 
 
-        $normalizedCity = ucfirst(strtolower($city));
-
-        if(!array_key_exists($normalizedCity, $forecasts))
-        {
-            return view('forecast.error', ['city' => $city]);
+        if (!$city) {
+            return view('forecast.error', ['city' => $cityName]);
         }
 
-        $cityForecast = $forecasts[$normalizedCity];
+
+        $forecasts = $city->forecasts;
+
+        // Vraćamo view
         return view('forecast.show', [
-            'city' => $normalizedCity,
-            'forecast' => $cityForecast
+            'city' => $city->name,
+            'forecasts' => $forecasts
         ]);
     }
-
-
 }
