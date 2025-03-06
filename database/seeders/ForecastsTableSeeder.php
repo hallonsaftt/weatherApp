@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\City;
 use App\Models\Forecast;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class ForecastsTableSeeder extends Seeder
 {

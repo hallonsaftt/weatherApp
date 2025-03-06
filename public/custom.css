@@ -111,18 +111,25 @@ footer {
 }
 
 .weather-forecast {
-    background-color: #24103b !important;
+    /*background-color: #24103b !important;*/
+    background-image: url("./imgz/weather.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 10vw;
+    background-color: #371c6c70;
     border-radius: 10px;
+    border: 1px solid #371c6c;
     padding: 20px;
     color: #ded1ff;
     width: 20vw;
+
 }
 
 .weather-city {
     color: #9b6fe6;
     font-size: 24px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #371c6c;
+    /*border-bottom: 1px solid #371c6c;*/
     padding-bottom: 10px;
 }
 
