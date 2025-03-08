@@ -91,58 +91,59 @@
 
 {{--        Forma za update--}}
 
-            {{-- formicsa --}}
-            <form method="POST" action="{{ route('weather.update') }}">
-                @csrf
-                <div class="row">
+{{--            --}}{{-- formicsa --}}
+{{--            <form method="POST" action="{{ route('weather.update') }}">--}}
+{{--                @csrf--}}
+{{--                --}}
+{{--                <div class="row">--}}
 
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <select class="form-control" name="city_id" id="city_id">
-                                @foreach(\App\Models\City::all() as $city)
-                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <input type="number" step="0.1" class="form-control" name="temperature" id="temperature" placeholder="npr. 22.5">
-                        </div>
-                    </div>
+{{--                    <div class="col-md-2">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <select class="form-control" name="city_id" id="city_id">--}}
+{{--                                @foreach(\App\Models\City::all() as $city)--}}
+{{--                                    <option value="{{ $city->id }}">{{ $city->name }}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <select class="form-control" name="weather_type" id="weather_type">
-                                <option value="sunny">Sunny</option>
-                                <option value="rainy">Rainy</option>
-                                <option value="snowy">Snowy</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <input type="number" class="form-control" name="probability" id="probability" min="1" max="100" placeholder="npr. 80">
-                        </div>
-                    </div>
+{{--                    <div class="col-md-2">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <input type="number" step="0.1" class="form-control" name="temperature" id="temperature" placeholder="npr. 22.5">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <input type="date" class="form-control" name="date" id="date">
-                        </div>
-                    </div>
+{{--                    <div class="col-md-2">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <select class="form-control" name="weather_type" id="weather_type">--}}
+{{--                                <option value="sunny">Sunny</option>--}}
+{{--                                <option value="rainy">Rainy</option>--}}
+{{--                                <option value="snowy">Snowy</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+{{--                    <div class="col-md-2">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <input type="number" class="form-control" name="probability" id="probability" min="1" max="100" placeholder="npr. 80">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
-                    <div class="col-md-2 d-flex align-items-end">
-                        <button type="submit" class="btn btn-cart">Azuriraj</button>
-                    </div>
-                </div>
-            </form>
+{{--                    <div class="col-md-2">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <input type="date" class="form-control" name="date" id="date">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+
+{{--                    <div class="col-md-2 d-flex align-items-end">--}}
+{{--                        <button type="submit" class="btn btn-cart">Azuriraj</button>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </form>--}}
 
         <hr>
 

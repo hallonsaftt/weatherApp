@@ -45,7 +45,18 @@ class AdminWeatherController extends Controller
             'date'         => 'required|date',
         ]);
 
-        dd($request->all());
+
+        $forecast = Forecast::where('city_id', $request->city_id)
+            ->where('date', $request->date)
+            ->firstOrFail();
+
+        $forecast->update([
+            'city_id'      => $request->city_id,
+            'temperature'  => $request->temperature,
+            'weather_type' => $request->weather_type,
+            'probability'  => $request->probability,
+            'date'         => $request->date,
+        ]);
 
 
 
