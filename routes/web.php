@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminWeatherController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +31,10 @@ Route::get('/forecast/{city}', [App\Http\Controllers\ForecastController::class, 
 
 
 
-Route::view('/admin/weather', 'admin.weather');
+Route::view('/admin/weather', 'admin.weather')
+->name('admin.weather');
 
-Route::post('/admin/weather/update', [App\Http\Controllers\WeatherController::class, 'store'])
+Route::post('/admin/weather/update', [AdminWeatherController::class, 'update'])
+->name('weather.create');
 
 require __DIR__.'/auth.php';
