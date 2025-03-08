@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class AdminWeatherController extends Controller
 {
-    public function update(Request $request)
+    public function createWeather(Request $request)
     {
 
 
@@ -16,7 +16,7 @@ class AdminWeatherController extends Controller
             'city_id'      => 'required|exists:cities,id',
             'temperature'  => 'required|numeric',
             'weather_type' => 'required|in:sunny,rainy,snowy',
-            'probability'  => 'required|integer|min:1|max:100',
+            'probability'  => '',
             'date'         => 'required|date',
         ]);
 
@@ -30,6 +30,25 @@ class AdminWeatherController extends Controller
         ]);
 
 //        return redirect()->back();
+        return redirect()->route('admin.weather')->with('success', 'Forecast kreiran uspesno!@');
+
+    }
+
+    public function update(Request $request)
+    {
+
+        $request->validate([
+            'city_id'      => 'required|exists:cities,id',
+            'temperature'  => 'required|numeric',
+            'weather_type' => 'required|in:sunny,rainy,snowy',
+            'probability'  => '',
+            'date'         => 'required|date',
+        ]);
+
+        dd($request->all());
+
+
+
         return redirect()->route('admin.weather')->with('success', 'Forecast kreiran uspesno!@');
 
     }

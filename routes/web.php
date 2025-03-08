@@ -34,7 +34,10 @@ Route::get('/forecast/{city}', [App\Http\Controllers\ForecastController::class, 
 Route::view('/admin/weather', 'admin.weather')
 ->name('admin.weather');
 
-Route::post('/admin/weather/update', [AdminWeatherController::class, 'update'])
+Route::post('/admin/weather/create', [AdminWeatherController::class, 'createWeather'])
 ->name('weather.create');
+
+Route::post('/admin/weather/update', [AdminWeatherController::class, 'update'])
+    ->name('weather.update');
 
 require __DIR__.'/auth.php';
