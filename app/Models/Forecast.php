@@ -9,8 +9,10 @@ class Forecast extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['city_id', 'temperature', 'date'];
+    protected $fillable = ['city_id', 'temperature', 'date', 'weather_type', 'probability'];
 
+
+            const WEATHERS = ['rainy', 'snowy', 'sunny'];
     public function city()
     {
         return $this->belongsTo(City::class);
