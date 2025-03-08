@@ -14,4 +14,6 @@ class WeatherModel extends Model
         'temp',
     ];
 
+
+
 }

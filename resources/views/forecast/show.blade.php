@@ -13,7 +13,7 @@
                 <div class="weather-day">
                     <div class="d-flex align-items-center">
                         <span class="weather-icon">🌡️</span>
-                        <!-- U bazi smo sačuvali samo 'date', pa ga prikazujemo -->
+                        <!-- -->
                         <span class="weather-day-name">{{ $forecast->date }}</span>
                     </div>
 
