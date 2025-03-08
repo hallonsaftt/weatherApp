@@ -28,4 +28,10 @@ Route::get('/prognoza', [App\Http\Controllers\WeatherController::class, 'index']
 Route::get('/forecast/{city}', [App\Http\Controllers\ForecastController::class, 'index'])
 ->name('forecast')  ;
 
+
+
+Route::view('/admin/weather', 'admin.weather');
+
+Route::post('/admin/weather/update', [App\Http\Controllers\WeatherController::class, 'store'])
+
 require __DIR__.'/auth.php';
