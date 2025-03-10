@@ -12,7 +12,7 @@ class Forecast extends Model
     protected $fillable = ['city_id', 'temperature', 'date', 'weather_type', 'probability'];
 
 
-            const WEATHERS = ['rainy', 'snowy', 'sunny'];
+            const WEATHERS = ['rainy', 'snowy', 'sunny', 'cloudy'];
     public function city()
     {
         return $this->belongsTo(City::class);

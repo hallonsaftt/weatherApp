@@ -15,7 +15,7 @@ class AdminWeatherController extends Controller
         $request->validate([
             'city_id'      => 'required|exists:cities,id',
             'temperature'  => 'required|numeric',
-            'weather_type' => 'required|in:sunny,rainy,snowy',
+            'weather_type' => 'required|in:sunny,rainy,snowy,cloudy',
             'probability'  => '',
             'date'         => 'required|date',
         ]);

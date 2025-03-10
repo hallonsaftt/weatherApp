@@ -63,6 +63,7 @@
                             <option value="sunny">Sunny</option>
                             <option value="rainy">Rainy</option>
                             <option value="snowy">Snowy</option>
+                            <option value="cloudy">Cloudy</option>
                         </select>
                     </div>
                 </div>
@@ -171,7 +172,32 @@
 
 
                         </p>
-                        <p><strong>Tip:</strong> {{ $forecast->weather_type }}</p>
+
+                        <p><strong>Tip:</strong>
+
+                            @if($forecast->weather_type == "rainy")
+
+                            {{ $forecast->weather_type }} <i class="bi bi-cloud-snow-fill"> </i>
+
+                            @elseif($forecast->weather_type == "sunny")
+
+                                {{ $forecast->weather_type }} <i class="bi bi-brightness-high-fill"> </i>
+
+                            @elseif($forecast->weather_type == "snowy")
+                                {{ $forecast->weather_type }} <i class="bi bi-snow"> </i>
+
+
+                            @elseif($forecast->weather_type == "cloudy")
+                                {{ $forecast->weather_type }} <i class="bi bi-cloud-sun-fill"> </i>
+
+                            @endif
+
+
+
+
+                        </p>
+
+
                         <p><strong>Verovatnoća:</strong> {{ $forecast->probability }}%</p>
                         <p><strong>Datum:</strong> <span class="text-success">{{ $forecast->date }}</span></p>
                     </div>

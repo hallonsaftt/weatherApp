@@ -19,20 +19,52 @@ class ForecastsTableSeeder extends Seeder
 
 
         foreach ($cities as $city) {
+            $previousTemperature = null;
+
             for ($i = 0; $i < 7; $i++) {
 
-                $weatherType = Forecast::WEATHERS[rand(0, 2)];
+                $weatherType = Forecast::WEATHERS[rand(0, 3)];
                 $probability = null;
+                $temperature = null;
 
-                if($weatherType == 'rainy' || $weatherType == 'snowy') {
+                if($weatherType == 'rainy' || $weatherType == 'snowy' || $weatherType == 'cloudy') {
 
                     $probability = rand(1, 100);
                 }
 
+                if($weatherType == 'cloudy') {
+                    $temperature = rand(1, 15);
+                }
+                if($weatherType == 'rainy') {
+                    $temperature = rand(-10, 50);
+                }
+                if($weatherType == 'snowy') {
+                    $temperature = rand(1, -50);
+                }
+                if($weatherType == 'sunny') {
+                    $temperature = rand(1, 50);
+                }
+
+
+                if (!is_null($previousTemperature)) {
+                    $minTemp = max(-10, $previousTemperature - 10);
+                    $maxTemp = min(50, $previousTemperature + 10);
+
+
+                    $temperature = rand($minTemp, $maxTemp);
+                }
+
+
+                $previousTemperature = $temperature;
+
+
+
+
                 Forecast::create([
                     'city_id'     => $city->id,
-                    'temperature' => $faker->numberBetween(-10, 40),
-                    'date'        => $faker->dateTimeBetween('-1 week', '+1 week'),
+//                    'temperature' => $faker->numberBetween(-10, 40),
+                    'temperature' => $temperature,
+                    'date' => now()->addDays($i),
                     'weather_type' => $weatherType,
                     'probability' => $probability,
                 ]);
