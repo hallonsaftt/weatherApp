@@ -153,7 +153,24 @@
                 <div class="col-md-4 mb-3">
                     <div class="border p-2">
                         <p><strong>Grad:</strong> {{ $forecast->city->name }}</p>
-                        <p><strong>Temperatura:</strong> {{ $forecast->temperature }} °C</p>
+                        <p><strong>Temperatura:</strong>
+
+                            @if($forecast->temperature >= 20)
+                                <i class="bi bi-brightness-high-fill"></i>
+                                <span class="text-warning"> {{ $forecast->temperature }}</span> °C
+
+                            @elseif($forecast->temperature > 0 && $forecast->temperature < 20)
+                                <i class="bi bi-cloud-snow-fill"></i>
+                                <span class="text-info"> {{ $forecast->temperature }}</span> °C
+
+                            @elseif($forecast->temperature < 0 )
+                                <i class="bi bi-snow"></i>
+                                <span class="text-primary"> {{ $forecast->temperature }}</span> °C
+
+                            @endif
+
+
+                        </p>
                         <p><strong>Tip:</strong> {{ $forecast->weather_type }}</p>
                         <p><strong>Verovatnoća:</strong> {{ $forecast->probability }}%</p>
                         <p><strong>Datum:</strong> <span class="text-success">{{ $forecast->date }}</span></p>
