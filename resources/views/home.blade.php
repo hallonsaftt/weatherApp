@@ -23,6 +23,27 @@
 
     @if(auth()->user())
 
+        <div class="container-search">
+        <form method="POST" action="">
+            @csrf
+            <div class="row">
+
+
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="city_search" placeholder="Pretrazi grad">
+                    </div>
+                </div>
+
+
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-cart">Pretrazi</button>
+                </div>
+            </div>
+            </form>
+        </div><br>
+
+
     <div class="row">
             @foreach($cities as $city)
                 <div class="col-md-4 mb-4">

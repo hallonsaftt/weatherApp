@@ -12,6 +12,12 @@ body {
 
 }
 
+.container-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 
@@ -109,6 +115,7 @@ footer {
 .navbar .nav-link:hover {
     color: #9b6fe6 !important;
 }
+
 
 .weather-forecast {
     /*background-color: #24103b !important;*/
