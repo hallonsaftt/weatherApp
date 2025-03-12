@@ -15,5 +15,17 @@ class City extends Model
     {
         return $this->hasMany(Forecast::class);
     }
+
+
+
+    public function todayForecasts()
+    {
+        return $this->hasOne(Forecast::class, 'city_id', 'id')
+            ->whereDate('date', today());
+    }
+
+
+
+
 }
 

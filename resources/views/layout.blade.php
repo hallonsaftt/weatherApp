@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('custom.css') }}">
+
+    @vite('resources/css/app.css')
 </head>
 <body class="d-flex flex-column min-vh-100">
 

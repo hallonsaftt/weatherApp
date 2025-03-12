@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use http\Env\Request;
+
 
 class ForecastController extends Controller
 {
@@ -25,4 +27,5 @@ class ForecastController extends Controller
             'forecasts' => $forecasts
         ]);
     }
+
 }

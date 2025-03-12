@@ -24,14 +24,14 @@
     @if(auth()->user())
 
         <div class="container-search">
-        <form method="POST" action="">
-            @csrf
+        <form method="GET" action="{{ route('forecast.search') }}">
+
             <div class="row">
 
 
                 <div class="col-md-8">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="city_search" placeholder="Pretrazi grad">
+                        <input type="text" class="form-control" name="city" placeholder="Pretrazi grad">
                     </div>
                 </div>
 
