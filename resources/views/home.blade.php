@@ -23,8 +23,50 @@
 
     @if(auth()->user())
 
+
+
+
+        <h4>Omiljeni gradovi</h4>
+
+        <div class="d-flex flex-wrap align-items-center gap-2">
+            @foreach($userFavourites as $favCity)
+                @php
+                    $weatherType = optional($favCity->todaysForecast)->weather_type ?? 'unknown';
+                    $icon = \App\Http\ForecastHelper::getIconByWeatherType($weatherType);
+                    $temperature = optional($favCity->todaysForecast)->temperature ?? '--';
+                @endphp
+
+                <span class="border px-3 py-2 d-flex align-items-center gap-2" style="border-radius: 5px;">
+
+            <i class="{{ $icon }}"></i>
+
+
+            <strong>{{ $favCity->name }}</strong>
+
+
+            <small>{{ $temperature }} °C</small>
+
+
+            <a href="{{ route('user-cities.favourite', ['city' => $favCity->id]) }}" class="btn btn-sm btn-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </span>
+            @endforeach
+        </div>
+
+    <br><br>
+
+
+
+
+
+
+
         <div class="container-search">
-        <form method="GET" action="{{ route('forecast.search') }}">
+
+
+
+            <form method="GET" action="{{ route('forecast.search') }}">
 
             <div class="row">
 

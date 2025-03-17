@@ -18,11 +18,12 @@ class City extends Model
 
 
 
-    public function todayForecasts()
+    public function todaysForecast()
     {
-        return $this->hasOne(Forecast::class, 'city_id', 'id')
+        return $this->hasOne(Forecast::class)
             ->whereDate('date', today());
     }
+
 
 
 

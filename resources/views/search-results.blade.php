@@ -8,27 +8,53 @@
     <div class="temp-container">
         <div>
 
+            <div>
+                @if (session()->has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session()->get('error') }}
+                        <a href="/login">Uloguj se</a>
+                    </div>
+                @endif
+            </div>
+
             @foreach($cities as $city)
-{{--                {{ dd($city->todayForecasts) }}--}}
-                <a href="/forecast/{{ $city->name }}">
+                @php
+                    $weatherType = optional($city->todaysForecast)->weather_type ?? 'unknown';
+                    $icon = \App\Http\ForecastHelper::getIconByWeatherType($weatherType);
+                @endphp
+
+                @if(in_array($city->id, $userFavourites))
+
+                    <a class="btn btn-primary mb-5 me-0" href="{{ route('user-cities.favourite', ['city' => $city->id]) }}"> <i class="bi bi-trash"></i>
+
+                    </a>
+
+                    <a href="/forecast/{{ $city->name }}" class="btn btn-primary mb-5 me-3">
+
+                        <i class="{{ $icon }}"></i> {{ $city->name }}
+
+                    </a>
+
+                @else
 
 
+                    <a class="btn btn-primary mb-5 me-0" href="{{ route('user-cities.favourite', ['city' => $city->id]) }}"> <i class="bi bi-heart"></i> </a>
 
-                    <span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">
+                    <a href="/forecast/{{ $city->name }}" class="btn btn-primary mb-5 me-3">
 
-                        @php
-                            $icon = \App\Http\ForecastHelper::getIconByWeatherType($city->todaysForecast?->weather_type);
-                        @endphp
+                        <i class="{{ $icon }}"></i> {{ $city->name }}
 
-                        <i class="{{ $icon }}"> </i>
-
-                        {{ $city->name }}
-                </span>
+                    </a>
 
 
-                </a>
+                @endif
 
             @endforeach
+
+
+
+
+
 
 
             <br><br><br><br><br><br>
