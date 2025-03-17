@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminWeatherController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\AdminCheckMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,16 +34,18 @@ Route::get('/forecast/{city}', [App\Http\Controllers\ForecastController::class, 
 ->name('forecast')  ;
 
 
+Route::prefix('/admin')->middleware(AdminCheckMiddleware::class)->group(function () {
 
+    Route::view('/weather', 'admin.weather')
+        ->name('admin.weather');
 
+    Route::post('/weather/create', [AdminWeatherController::class, 'createWeather'])
+        ->name('weather.create');
 
-Route::view('/admin/weather', 'admin.weather')
-->name('admin.weather');
+    Route::post('/weather/update', [AdminWeatherController::class, 'update'])
+        ->name('weather.update');
 
-Route::post('/admin/weather/create', [AdminWeatherController::class, 'createWeather'])
-->name('weather.create');
+});
 
-Route::post('/admin/weather/update', [AdminWeatherController::class, 'update'])
-    ->name('weather.update');
 
 require __DIR__.'/auth.php';
