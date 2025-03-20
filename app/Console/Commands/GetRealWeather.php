@@ -12,7 +12,7 @@ class GetRealWeather extends Command
      *
      * @var string
      */
-    protected $signature = 'app:get-real-weather';
+    protected $signature = 'app:get-real-weather {city}';
 
     /**
      * The console command description.
@@ -26,20 +26,27 @@ class GetRealWeather extends Command
      */
     public function handle()
     {
-//        $url = "https://reqres.in/api/users?page=2";
-//
-//        $response = Http::get($url);
-//
-//        $jsonresponse = $response->body();
-//
-//        $jsonresponse = json_decode($jsonresponse, true); //ovo ej sada Array assoc
-//
-//        dd($jsonresponse['total'], 'Total');
 
 
-        $response = Http::get("http://api.weatherapi.com/v1/current.json?key=3ba43f120516456b974145529252003&q=London&aqi=no");
 
-        dd($response->body());
+        $response = Http::get(env("WEATHER_API_URL"). "v1/forecast.json", [
+            'key' => env('WEATHER_API_KEY'),
+            'q' => $this->argument('city'),
+            'aqi' => 'no',
+            'days' => 1,
+                        ]);
+
+        dd($response->json());
+
+        $jsonResponse = $response->json();
+
+        if(isset($jsonResponse['error']))
+        {
+            $this->output->error($jsonResponse['error']['message']);
+        }
+
+
+
 
     }
 }
