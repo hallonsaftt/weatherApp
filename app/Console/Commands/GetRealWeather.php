@@ -26,15 +26,20 @@ class GetRealWeather extends Command
      */
     public function handle()
     {
-        $url = "https://reqres.in/api/users?page=2";
+//        $url = "https://reqres.in/api/users?page=2";
+//
+//        $response = Http::get($url);
+//
+//        $jsonresponse = $response->body();
+//
+//        $jsonresponse = json_decode($jsonresponse, true); //ovo ej sada Array assoc
+//
+//        dd($jsonresponse['total'], 'Total');
 
-        $response = Http::get($url);
 
-        $jsonresponse = $response->body();
+        $response = Http::get("http://api.weatherapi.com/v1/current.json?key=3ba43f120516456b974145529252003&q=London&aqi=no");
 
-        $jsonresponse = json_decode($jsonresponse, true); //ovo ej sada Array assoc
-
-        dd($jsonresponse['total'], 'Total');
+        dd($response->body());
 
     }
 }
