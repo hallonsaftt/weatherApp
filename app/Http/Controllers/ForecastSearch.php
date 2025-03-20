@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -12,6 +13,8 @@ class ForecastSearch extends Controller
     public function search(Request $request)
     {
         $cityname = $request->get('city');
+
+        Artisan::call("app:get-real-weather", ['city' => $cityname]);
 
         $cities = City::with('todaysForecast')->where("name", "LIKE" , "%$cityname%")->get();
 

@@ -28,6 +28,7 @@ class GetRealWeather extends Command
      */
     public function handle()
     {
+//        die("RADI");
 
         $city = $this->argument('city');
 
