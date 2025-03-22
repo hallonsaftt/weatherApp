@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Services\WeatherService;
 use http\Env\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -22,14 +23,19 @@ class ForecastController extends Controller
 
         $forecasts = $city->forecasts;
 
-        $response = Http::get(env("WEATHER_API_URL"). "v1//astronomy.json", [
-            'key' => env('WEATHER_API_KEY'),
-            'q' => $cityName,
-            'aqi' => 'no',
-            'days' => 1,
-        ]);
+//        $response = Http::get(env("WEATHER_API_URL"). "v1//astronomy.json", [
+//            'key' => env('WEATHER_API_KEY'),
+//            'q' => $cityName,
+//            'aqi' => 'no',
+//            'days' => 1,
+//        ]);
+//
+//        $jsonResponse = $response->json();
+        $forecastService = new WeatherService();
+        $jsonResponse = $forecastService->getForecastAstronomy($cityName);
 
-        $jsonResponse = $response->json();
+
+
         $sunrise = $jsonResponse['astronomy']['astro']['sunrise'];
         $sunset = $jsonResponse['astronomy']['astro']['sunset'];
 

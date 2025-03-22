@@ -19,4 +19,16 @@ class WeatherService
 
         return $response->json();
     }
+
+    public function getForecastAstronomy($cityName)
+    {
+        $response = Http::get(env("WEATHER_API_URL"). "v1//astronomy.json", [
+            'key' => env('WEATHER_API_KEY'),
+            'q' => $cityName,
+            'aqi' => 'no',
+            'days' => 1,
+        ]);
+
+        return $response->json();
+    }
 }
