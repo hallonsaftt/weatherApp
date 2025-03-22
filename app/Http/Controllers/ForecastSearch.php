@@ -34,7 +34,6 @@ class ForecastSearch extends Controller
 
 
 
-
         return view('search-results', compact('cities', 'userFavourites'));
     }
 

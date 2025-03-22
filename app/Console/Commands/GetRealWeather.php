@@ -67,11 +67,12 @@ class GetRealWeather extends Command
             return;
         }
 
+        $forecastDay = $jsonResponse["forecast"]["forecastday"][0];
 
-        $forecastDate = $jsonResponse["forecast"]["forecastday"][0]["date"];
-        $temperature = $jsonResponse["forecast"]["forecastday"][0]["day"]["avgtemp_c"];
-        $weatherType = $jsonResponse["forecast"]["forecastday"][0]["day"]["condition"]["text"];
-        $probability = $jsonResponse["forecast"]["forecastday"][0]["day"]["daily_chance_of_rain"];
+        $forecastDate = $forecastDay["date"];
+        $temperature = $forecastDay["day"]["avgtemp_c"];
+        $weatherType = $forecastDay["day"]["condition"]["text"];
+        $probability = $forecastDay["day"]["daily_chance_of_rain"];
 
 
         $forecast = [
@@ -82,12 +83,9 @@ class GetRealWeather extends Command
             "probability" => $probability,
         ];
 
+
         Forecast::create($forecast);
         $this->output->comment('Command Add Succesfully');
-
-
-
-
 
 
     }

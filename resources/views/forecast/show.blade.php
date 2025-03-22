@@ -23,6 +23,9 @@
                         {{ $forecast->temperature }}°C
                     </span>
                 </div>
+
+                <p>Svice u: {{ $sunrise }}</p>
+                <p>Pada mrak u: {{ $sunset }}</p>
             @endforeach
 
             <a href="/" class="btn btn-cart"> << Back to all</a>
